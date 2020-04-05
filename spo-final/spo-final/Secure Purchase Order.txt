@@ -1,0 +1,16 @@
+Secure Purchase Order: 
+
+
+Implement a secure purchase order system that allows the user to enter a purchase request and routes it to a supervisor for signature and then to the purchasing department. 
+
+
+The signatures of both the purchaser and the supervisor will be public key based, and will be performed on a hash of the purchase order. 
+
+
+The signature of the purchaser will be sent to both the supervisor and the orders department along with a timestamp. 
+
+
+If an order is approved by the supervisor, the orders department can crosscheck the digest signed by the supervisor with the digest signed by the purchaser. 
+
+
+All messages will be encrypted using RSA public-key cryptography.

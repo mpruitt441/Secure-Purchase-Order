@@ -1,0 +1,72 @@
+{% extends "purchaseorder/base.html" %}
+{% block content %}
+    {% for order in orders %}
+
+
+      {% if order.author == user %}
+          <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ order.author }}</a>
+                <small class="text-muted">{{ order.date_ordered }}</small>
+              </div>
+              <h2><a class="article-title" href="{% url 'order-detail' order.id %}">{{ order.title }}</a></h2>
+              <p class="article-content">{{ order.content }}</p>
+              <hr>
+              <p class="article-content">Approved?: {{ order.approved}}</p>
+              <p class="article-content">Date Approved: {{ order.dateApproved }}</p>
+              <p class="article-content">Approved By: {{ order.approvedBy }}</p>
+              <hr>
+              <p class="article-content">Purchased?: {{ order.purchased }}</p>
+              <p class="article-content">Date Purchased: {{ order.datePurchased }}</p>
+              <p class="article-content">Purchased By:{{ order.purchasedBy }}</p>
+          
+          
+            </div>
+          </article>
+        {% elif user.is_supervisor %}
+          <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ order.author }}</a>
+                <small class="text-muted">{{ order.date_ordered }}</small>
+              </div>
+              <h2><a class="article-title" href="{% url 'order-detail' order.id %}">{{ order.title }}</a></h2>
+              <p class="article-content">{{ order.content }}</p>
+              <hr>
+              <p class="article-content">Approved?: {{ order.approved}}</p>
+              <p class="article-content">Date Approved: {{ order.dateApproved }}</p>
+              <p class="article-content">Approved By: {{ order.approvedBy }}</p>
+              <hr>
+              <p class="article-content">Purchased?: {{ order.purchased }}</p>
+              <p class="article-content">Date Purchased: {{ order.datePurchased }}</p>
+              <p class="article-content">Purchased By:{{ order.purchasedBy }}</p>
+          
+          
+            </div>
+          </article>
+        {% elif user.is_purchasing %}
+          <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ order.author }}</a>
+                <small class="text-muted">{{ order.date_ordered }}</small>
+              </div>
+              <h2><a class="article-title" href="{% url 'order-detail' order.id %}">{{ order.title }}</a></h2>
+              <p class="article-content">{{ order.content }}</p>
+              <hr>
+              <p class="article-content">Approved?: {{ order.approved}}</p>
+              <p class="article-content">Date Approved: {{ order.dateApproved }}</p>
+              <p class="article-content">Approved By: {{ order.approvedBy }}</p>
+              <hr>
+              <p class="article-content">Purchased?: {{ order.purchased }}</p>
+              <p class="article-content">Date Purchased: {{ order.datePurchased }}</p>
+              <p class="article-content">Purchased By:{{ order.purchasedBy }}</p>
+          
+            </div>
+          </article>
+      {% endif %}
+
+      
+    {% endfor %}
+{% endblock content %}
